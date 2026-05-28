@@ -27,3 +27,22 @@ jobs:
 
       - name: Push Image
         run: docker push zmanjith/simple-html-app:v3
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+
+            docker pull zmanjith/simple-html-app:latest
+
+            docker stop myapp || true
+
+            docker rm myapp || true
+
+            docker run -d \
+            --name myapp \
+            -p 80:80 \
+            zmanjith/simple-html-app:latest
