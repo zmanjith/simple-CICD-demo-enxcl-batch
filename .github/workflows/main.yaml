@@ -36,7 +36,7 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
 
-            docker pull zmanjith/simple-html-app:latest
+            docker pull zmanjith/simple-html-app:v3
 
             docker stop myapp || true
 
@@ -45,4 +45,4 @@ jobs:
             docker run -d \
             --name myapp \
             -p 80:80 \
-            zmanjith/simple-html-app:latest
+            zmanjith/simple-html-app:v3
