@@ -23,7 +23,7 @@ jobs:
         run: docker build -t simple-html-app .
 
       - name: Tag Image
-        run: docker tag simple-html-app zmanjith/simple-html-app:v2
+        run: docker tag simple-html-app zmanjith/simple-html-app:v3
 
       - name: Push Image
-        run: docker push zmanjith/simple-html-app:v2
+        run: docker push zmanjith/simple-html-app:v3
