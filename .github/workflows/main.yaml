@@ -42,6 +42,7 @@ jobs:
 
             docker rm myapp || true
 
+
             docker run -d \
             --name myapp \
             -p 80:80 \
